@@ -1,13 +1,53 @@
-<!-- Standard link tag-->
-<link rel="stylesheet" href="../../node_modules/figma-plugin-ds/dist/figma-plugin-ds.css">
+<!-- 
+ This Project is a Free open source plugin for Figma.
+ here, particles means shapes that are used as spots in a group or a patterns.
+ Paticles help users create patterns from different in built shapes as well as Create their own custom Particles. 
+ This project is created and maintained by https://github.com/Ronit-gurjar
+-->
 
-<script src="../node_modules/figma-plugin-ds/dist/iife/figma-plugin-ds.js">
+<!--STYLES-->
+<link rel="stylesheet" href="../Particles/node_modules/figma-plugin-ds/dist/figma-plugin-ds.css">
 
-    
 
-</script> 
-
+<!--Plugin MAIN-->
 <h1 class="title">Particles</h1>
-<p>by Ronit</p>
-<button class='button button--primary'>Label</button> 
+<p>by <a href="https://github.com/Ronit-gurjar">Ronit</a></p>
 
+<form id="pluginForm">
+    <fieldset>
+        <legend>Select Particles</legend>
+
+        <select id="uniqueId" class="select-menu">
+            <option value="1" >Snake</option>
+            <option value="2" >Circle</option>
+            <option value="3" >Rectangle</option>
+        </select>
+
+    </fieldset>
+    <fieldset>
+        <legend>Select from below 👇</legend>
+        <p>
+            <label for="particle-color">Particle color</label>
+            <input type="color" name="particle-color" value="blue">
+        </p>
+
+        <p>
+            <label for="particle-randomness">Particle Randomness</label>
+            <input type="range" id="particle-randomness" name="particle-randomness" min="0" max="100">
+        </p>
+
+        <p>
+            <label for="particle-spread">Particle Spread</label>
+            <input type="range" id="particle-spread" name="particle-spread" min="0" max="100">
+        </p>
+
+        <input type="button" value="SPLASHH">
+
+    </fieldset>
+
+</form>
+
+<!--SCRIPTS-->
+<script src="../Particles/node_modules/figma-plugin-ds/dist/iife/figma-plugin-ds.js">
+    selectMenu.init(); //initiates the select menu component
+</script>
