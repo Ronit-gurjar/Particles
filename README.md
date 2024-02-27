@@ -1,6 +1,12 @@
+# Particles
+
 Below are the steps to get your plugin running. You can also find instructions at:
 
-  https://www.figma.com/plugin-docs/plugin-quickstart-guide/
+`https://www.figma.com/plugin-docs/plugin-quickstart-guide/`
+
+Below is reference for the API usage:
+
+`https://www.figma.com/plugin-docs/api/api-reference/`
 
 This plugin template uses Typescript and NPM, two standard tools in creating JavaScript applications.
 
