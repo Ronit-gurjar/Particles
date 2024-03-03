@@ -6,39 +6,141 @@
 -->
 
 <!--STYLES-->
-<link rel="stylesheet" href="../Particles/node_modules/figma-plugin-ds/dist/figma-plugin-ds.css">
+<style>
+    body{
+        background-image: linear-gradient(to bottom, #6b9bdf, #2952a3);
+        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+       }
+    .main{
+        background-color: aliceblue;
+        padding: 1rem;
+        border-radius: 1rem;
+    }
+    .title{
+        color: #ffffff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .title p{
+        position: relative;
+        left: 20px;
+    }
+    .title p a.button {
+        /* Base styles */
+        display: inline-block;
+        padding: 10px 20px;
+        text-decoration: none; /* Remove underline */
+        text-align: center;
+        font-weight: bold;
+        color: white;
+        border: none; /* Remove default border */
+        cursor: pointer; /* Indicate clickable element */
+        
+        /* Box shadow for 3D effect */
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 
+                    inset 0px 0px 0px rgba(255, 255, 255, 0.2);
+      
+        /* Optional: Background gradient for added depth */
+        background-image: linear-gradient(to bottom, #2ecc71, #17a59c);
+      }
+      
+      a.button:hover {
+        /* Add subtle hover effect */
+        box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.3), 
+                    inset 0px 0px 0px rgba(255, 255, 255, 0.3);
+      }
+    fieldset{
+        border-radius: 0.5rem;
+        background-color: #ffffff;
+        padding: 10px;
+    }
+
+    .dial {
+        display: inline-block; /* Display each dial inline */
+        margin: 10px 0; /* Add some spacing between dials */
+        width: 200px; /* Set the width of the dial */
+        
+        /* Hide the default range input track and handle */
+        appearance: none;
+        
+        /* Create a custom track element */
+        &::-webkit-slider-runnable-track {
+          height: 10px; /* Set the height of the track */
+          background-image: linear-gradient(to bottom, #2ecc71, #17a59c); /* Greenish gradient */
+          border-radius: 5px; /* Add rounded corners */
+        }
+        
+        /* Create a custom handle element */
+        &::-webkit-slider-thumb {
+          -webkit-appearance: none; /* Remove default appearance */
+          width: 10px; /* Set the width of the handle */
+          height: 10px; /* Set the height of the handle */
+          border-radius: 50%; /* Make the handle a circle */
+          background-color: #fff; /* Set the handle color */
+          box-shadow: 0 0 2px rgba(0, 0, 0, 0.2); /* Add a slight shadow */
+          cursor: pointer; /* Indicate draggable element */
+        }
+      }
+      
+      /* Show the value above the dial on change */
+      .dial input[type="range"]::-webkit-slider-thumb:active + label {
+        opacity: 1; /* Show the label when the handle is active */
+      }
+      .color-picker {
+        width: 30px;
+        display: inline-block; /* Display the picker inline */
+        margin: 10px 0; /* Add some spacing */
+        border: 1px solid #2ecc71; /* Greenish border matching the dial gradient */
+        border-radius: 5px; /* Add rounded corners */
+        padding: 5px; /* Add some padding inside the picker */
+      }
+      
+      .color-picker input[type="color"] {
+        width: 100%; /* Set the full width of the picker */
+        border: none; /* Remove default border */
+        padding: 0; /* Remove default padding */
+        background: none; /* Remove default background */
+      }
+</style>
 
 
 <!--Plugin MAIN-->
-<h1 class="title">Particles</h1>
-<p>by <a href="https://github.com/Ronit-gurjar">Ronit</a></p>
-
+<div class="title">
+<h1>Particles</h1>
+<p>by <a href="https://github.com/Ronit-gurjar" class="button">Ronit</a></p>
+</div>
+<div class="main">
 <form id="pluginForm">
     <fieldset>
         <legend>Select Particles</legend>
-
-        <select id="uniqueId" class="select-menu">
-            <option value="1" >Snake</option>
-            <option value="2" >Circle</option>
-            <option value="3" >Rectangle</option>
-        </select>
-
+        <input type="checkbox" id="snake" name="particle[]" value="Snake">
+        <label for="snake">Snake</label><br>
+        <input type="checkbox" id="ring" name="particle[]" value="Ring">
+        <label for="ring">Ring</label><br>
+        <input type="checkbox" id="star" name="particle[]" value="Star">
+        <label for="star">Star</label><br>
+        <input type="checkbox" id="triangle" name="particle[]" value="Triangle">
+        <label for="triangle">Triangle</label><br>
+        <input type="checkbox" id="square" name="particle[]" value="Square">
+        <label for="square">Square</label><br>
     </fieldset>
+
     <fieldset>
-        <legend>Select from below 👇</legend>
+        <legend>Customize</legend>
         <p>
             <label for="particle-color">Particle color</label>
-            <input type="color" name="particle-color" value="blue">
+            <input type="color" name="particle-color" value="blue" class="color-picker">
         </p>
 
         <p>
             <label for="particle-randomness">Particle Randomness</label>
-            <input type="range" id="particle-randomness" name="particle-randomness" min="0" max="100">
+            <input type="range" id="particle-randomness" name="particle-randomness" min="0" max="100" class="dial">
         </p>
 
         <p>
             <label for="particle-spread">Particle Spread</label>
-            <input type="range" id="particle-spread" name="particle-spread" min="0" max="100">
+            <input type="range" id="particle-spread" name="particle-spread" min="0" max="100" class="dial">
         </p>
 
         <input type="button" value="SPLASHH">
@@ -46,7 +148,7 @@
     </fieldset>
 
 </form>
-
+</div>
 <!--SCRIPTS-->
 <script src="../Particles/node_modules/figma-plugin-ds/dist/iife/figma-plugin-ds.js">
     selectMenu.init(); //initiates the select menu component
