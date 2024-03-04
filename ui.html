@@ -4,6 +4,7 @@
  Paticles help users create patterns from different in built shapes as well as Create their own custom Particles. 
  This project is created and maintained by https://github.com/Ronit-gurjar
 -->
+<html>
 
 <!--EXTERNALS-->
 
@@ -56,7 +57,10 @@
     }
 
     .wrapper{
-      display: grid;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
     }
     .container{
       width: 60px;
@@ -83,7 +87,35 @@
       border-color: #2ecc71;
       transition: ease-in-out 100ms;
     }
+    .container .icon{
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 70%; /* Set width to 100% of its container */
+      height: 70%; /* Set height to 100% of its container */
+      left: 5px;
+      bottom: 5px;
+    }
 
+    .container .label{
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left:0;
+      right: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: rgba(130, 130, 130, 0.284);
+      border-radius: inherit;
+      width: auto;
+      opacity: 0%;
+    }
+    .container:hover .label{
+      opacity: 100%;
+      transition: ease-in 100ms;
+    }
 
     .dial {
         display: inline-block;
@@ -137,33 +169,48 @@
     <fieldset> <!--For Particle selection-->
         <legend>Select Particles</legend>
         <div class="wrapper">
+
           <div class="container">
             <input type="checkbox" id="snake" name="particle[]" value="Snake">
-            <label for="snake">Snake</label>
+            <svg class="icon" width="69" height="167" viewBox="0 0 69 167" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10 11C23.0826 19.9821 58.4412 23.5084 55.0002 39C51.9416 52.7693 14.5508 51.4343 13.4998 65.5C12.4131 80.0428 51.4874 81.9519 52.4999 96.5C53.5509 111.601 16.1887 101.5 15.4999 122.5C14.8111 143.5 30.4999 145 55 154.5" stroke="#C2C2C2" stroke-width="26"/>
+            </svg>
+            <label class="label" for="snake">Snake</label>
           </div>
-        </div>
-        <div class="wrapper">
+        
           <div class="container">
             <input type="checkbox" id="ring" name="particle[]" value="Ring">
-            <label for="ring">Ring</label><br>
+            <svg class="icon" width="130" height="130" viewBox="0 0 130 130" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="65" cy="65" r="52" stroke="#C2C2C2" stroke-width="26"/>
+            </svg>
+            <label class="label" for="ring">Ring</label><br>
           </div>
-        </div>
-        <div class="wrapper">
+        
           <div class="container">
             <input type="checkbox" id="star" name="particle[]" value="Star">
-            <label for="star">Star</label><br>
+            <svg class="icon" width="132" height="126" viewBox="0 0 132 126" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M61.2447 3.63525C62.7415 -0.971302 69.2585 -0.9713 70.7553 3.63525L82.8385 40.8237C83.5079 42.8838 85.4277 44.2786 87.5938 44.2786H126.696C131.54 44.2786 133.554 50.4767 129.635 53.3237L98.0006 76.3075C96.2482 77.5807 95.5149 79.8375 96.1843 81.8976L108.268 119.086C109.764 123.693 104.492 127.523 100.573 124.676L68.9389 101.693C67.1865 100.419 64.8135 100.419 63.0611 101.693L31.4267 124.676C27.5081 127.523 22.2357 123.693 23.7325 119.086L35.8157 81.8976C36.4851 79.8375 35.7518 77.5807 33.9994 76.3075L2.36497 53.3237C-1.5536 50.4767 0.46028 44.2786 5.3039 44.2786H44.4062C46.5723 44.2786 48.4921 42.8838 49.1614 40.8237L61.2447 3.63525Z" fill="#C2C2C2"/>
+            </svg>
+            <label class="label" for="star">Star</label><br>
           </div>
-        </div>
-        <div class="wrapper">
+        
           <div class="container">
             <input type="checkbox" id="triangle" name="particle[]" value="Triangle">
-            <label for="triangle">Triangle</label><br>
+            <svg class="icon" width="116" height="103" viewBox="0 0 116 103" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M53.6699 7.50001C55.5944 4.16667 60.4056 4.16667 62.3301 7.5L109.962 90C111.886 93.3333 109.48 97.5 105.631 97.5H10.3686C6.5196 97.5 4.11398 93.3333 6.03848 90L53.6699 7.50001Z" stroke="#C2C2C2" stroke-width="10"/>
+            </svg>
+            <label class="label" for="triangle">Triangle</label><br>
           </div>
-        </div>
-        <div class="wrapper">
+        
           <div class="container">
             <input type="checkbox" id="square" name="particle[]" value="Square">
-            <label for="square">Square</label><br>
+            <svg class="icon" width="140" height="140" viewBox="0 0 140 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <mask id="path-1-inside-1_10_16" fill="white">
+              <rect width="140" height="140" rx="10"/>
+              </mask>
+              <rect width="140" height="140" rx="10" stroke="#C2C2C2" stroke-width="40" mask="url(#path-1-inside-1_10_16)"/>
+            </svg>
+            <label class="label" for="square">Square</label><br>
           </div>
         </div>
 
@@ -196,3 +243,5 @@
 <script src="../Particles/node_modules/figma-plugin-ds/dist/iife/figma-plugin-ds.js">
    
 </script>
+
+</html>
