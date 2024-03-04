@@ -5,6 +5,9 @@
  This project is created and maintained by https://github.com/Ronit-gurjar
 -->
 
+<!--EXTERNALS-->
+
+
 <!--STYLES-->
 <style>
     body{
@@ -27,26 +30,22 @@
         left: 20px;
     }
     .title p a.button {
-        /* Base styles */
         display: inline-block;
-        padding: 10px 20px;
-        text-decoration: none; /* Remove underline */
+        padding: 5px;
+        border-radius: 15px;
+        text-decoration: none;
         text-align: center;
         font-weight: bold;
         color: white;
-        border: none; /* Remove default border */
-        cursor: pointer; /* Indicate clickable element */
-        
-        /* Box shadow for 3D effect */
+        border: none;
+        cursor: pointer; 
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 
                     inset 0px 0px 0px rgba(255, 255, 255, 0.2);
-      
-        /* Optional: Background gradient for added depth */
         background-image: linear-gradient(to bottom, #2ecc71, #17a59c);
       }
       
-      a.button:hover {
-        /* Add subtle hover effect */
+      .title p a.button:hover {
+        
         box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.3), 
                     inset 0px 0px 0px rgba(255, 255, 255, 0.3);
       }
@@ -56,51 +55,73 @@
         padding: 10px;
     }
 
+    .wrapper{
+      display: grid;
+    }
+    .container{
+      width: 60px;
+      height: 60px;
+      background-color: #ffffff;
+      box-shadow: 0 0 20px rgba(17, 1, 68, 0.1);
+      border-radius: 10px;
+      position: relative;
+      cursor: pointer;
+    }
+    .container input[type="checkbox"]{
+      position: relative;
+      left: 40px;
+      appearance: none;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%; /* Make the checkbox a circle */
+      background-color: #fff; /* Set initial background color */
+      border: 2px solid #ccc;
+      cursor: pointer;
+    }
+    .container input[type="checkbox"]:checked{
+      background-color: #c2c2c2;
+      border-color: #2ecc71;
+      transition: ease-in-out 100ms;
+    }
+
+
     .dial {
-        display: inline-block; /* Display each dial inline */
-        margin: 10px 0; /* Add some spacing between dials */
-        width: 200px; /* Set the width of the dial */
-        
-        /* Hide the default range input track and handle */
+        display: inline-block;
+        margin: 10px 0;
+        width: 200px;
         appearance: none;
         
-        /* Create a custom track element */
-        &::-webkit-slider-runnable-track {
-          height: 10px; /* Set the height of the track */
-          background-image: linear-gradient(to bottom, #2ecc71, #17a59c); /* Greenish gradient */
-          border-radius: 5px; /* Add rounded corners */
-        }
         
-        /* Create a custom handle element */
+        &::-webkit-slider-runnable-track {
+          height: 10px;
+          background-image: linear-gradient(to bottom, #2ecc71, #17a59c);
+          border-radius: 5px;
+        }
         &::-webkit-slider-thumb {
-          -webkit-appearance: none; /* Remove default appearance */
-          width: 10px; /* Set the width of the handle */
-          height: 10px; /* Set the height of the handle */
-          border-radius: 50%; /* Make the handle a circle */
-          background-color: #fff; /* Set the handle color */
-          box-shadow: 0 0 2px rgba(0, 0, 0, 0.2); /* Add a slight shadow */
-          cursor: pointer; /* Indicate draggable element */
+          -webkit-appearance: none;
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+          background-color: #fff;
+          box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+          cursor: pointer;
         }
       }
-      
-      /* Show the value above the dial on change */
-      .dial input[type="range"]::-webkit-slider-thumb:active + label {
-        opacity: 1; /* Show the label when the handle is active */
-      }
+
       .color-picker {
         width: 30px;
-        display: inline-block; /* Display the picker inline */
-        margin: 10px 0; /* Add some spacing */
-        border: 1px solid #2ecc71; /* Greenish border matching the dial gradient */
-        border-radius: 5px; /* Add rounded corners */
-        padding: 5px; /* Add some padding inside the picker */
+        display: inline-block;
+        margin: 10px 0;
+        border: 1px solid #2ecc71;
+        border-radius: 5px;
+        padding: 5px;
       }
       
       .color-picker input[type="color"] {
-        width: 100%; /* Set the full width of the picker */
-        border: none; /* Remove default border */
-        padding: 0; /* Remove default padding */
-        background: none; /* Remove default background */
+        width: 100%;
+        border: none;
+        padding: 0;
+        background: none;
       }
 </style>
 
@@ -110,23 +131,45 @@
 <h1>Particles</h1>
 <p>by <a href="https://github.com/Ronit-gurjar" class="button">Ronit</a></p>
 </div>
+
 <div class="main">
 <form id="pluginForm">
-    <fieldset>
+    <fieldset> <!--For Particle selection-->
         <legend>Select Particles</legend>
-        <input type="checkbox" id="snake" name="particle[]" value="Snake">
-        <label for="snake">Snake</label><br>
-        <input type="checkbox" id="ring" name="particle[]" value="Ring">
-        <label for="ring">Ring</label><br>
-        <input type="checkbox" id="star" name="particle[]" value="Star">
-        <label for="star">Star</label><br>
-        <input type="checkbox" id="triangle" name="particle[]" value="Triangle">
-        <label for="triangle">Triangle</label><br>
-        <input type="checkbox" id="square" name="particle[]" value="Square">
-        <label for="square">Square</label><br>
+        <div class="wrapper">
+          <div class="container">
+            <input type="checkbox" id="snake" name="particle[]" value="Snake">
+            <label for="snake">Snake</label>
+          </div>
+        </div>
+        <div class="wrapper">
+          <div class="container">
+            <input type="checkbox" id="ring" name="particle[]" value="Ring">
+            <label for="ring">Ring</label><br>
+          </div>
+        </div>
+        <div class="wrapper">
+          <div class="container">
+            <input type="checkbox" id="star" name="particle[]" value="Star">
+            <label for="star">Star</label><br>
+          </div>
+        </div>
+        <div class="wrapper">
+          <div class="container">
+            <input type="checkbox" id="triangle" name="particle[]" value="Triangle">
+            <label for="triangle">Triangle</label><br>
+          </div>
+        </div>
+        <div class="wrapper">
+          <div class="container">
+            <input type="checkbox" id="square" name="particle[]" value="Square">
+            <label for="square">Square</label><br>
+          </div>
+        </div>
+
     </fieldset>
 
-    <fieldset>
+    <fieldset> <!--For Particle properties-->
         <legend>Customize</legend>
         <p>
             <label for="particle-color">Particle color</label>
